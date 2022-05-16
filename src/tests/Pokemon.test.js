@@ -19,17 +19,9 @@ describe('6. Teste o componente <Pokemon.js />', () => {
 
     const typePokemon = screen.getByTestId('pokemon-type');
     expect(typePokemon).toHaveTextContent(/Electric/i);
-  });
-
-  test('O peso médio do pokémon deve ser exibido', () => {
-    renderWithRouter(<App />);
 
     const averageWeightPokemon = screen.getByText(/average weight: 6\.0 kg/i);
     expect(averageWeightPokemon).toBeInTheDocument();
-  });
-
-  test(' imagem do pokémon deve ser exibida', () => {
-    renderWithRouter(<App />);
 
     const imagePokemons = screen.getByRole('img', { name: /pikachu sprite/i });
     expect(imagePokemons).toHaveAttribute(
@@ -37,11 +29,10 @@ describe('6. Teste o componente <Pokemon.js />', () => {
     );
   });
 
-  test(' imagem do pokémon deve ser exibida', () => {
+  test('Teste se o card do pokémon indicado na Pokédex um link de navegaçã', () => {
     renderWithRouter(<App />);
-
     const linkPokemon = screen.getByRole('link', { name: /more details/i });
-    expect(linkPokemon).toBeInTheDocument('/pokemons/25');
+    expect(linkPokemon.href).toContain('/pokemons/25');
   });
 
   test('Teste se ao clicar no link de navegação do pokémon', () => {
@@ -54,13 +45,19 @@ describe('6. Teste o componente <Pokemon.js />', () => {
     expect(pathname).toBe('/pokemons/25');
   });
 
-  // test('Teste também se a URL exibida no navegador muda para /pokemon/<id>', () => {
-
-  // });
-
   test('Teste se existe um ícone de estrela nos pokémons favoritados', () => {
     renderWithRouter(<App />);
-    const star = screen.getAllByAltText(/Pikachu is marked/);
-    expect(star[0].src).toContain('/star-icon.svg');
+
+    const linkNav = screen.getByRole('link', { name: /more details/i });
+    userEvent.click(linkNav);
+
+    const checkBox = screen.getByRole('checkbox', { name: /pokémon favoritado\?/i });
+    userEvent.click(checkBox);
+
+    const star = screen.getByRole('img', { name: /pikachu is marked as favorite/i });
+    expect(star).toHaveAttribute('src', '/star-icon.svg');
+    expect(star.alt).toContain('Pikachu is marked as favorite');
+
+    // pegar checbox
   });
 });
