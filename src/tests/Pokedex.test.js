@@ -53,6 +53,8 @@ describe('5. Teste o componente <App.js />', () => {
     renderWithRouter(<App />);
     const btnAll = screen.getByRole('button', { name: /all/i });
     expect(btnAll).toBeInTheDocument();
+    userEvent.click(btnAll);
+    expect(btnAll).toBeInTheDocument();
   });
 
   test('Ao carregar a página, o filtro selecionado deverá ser All', () => {

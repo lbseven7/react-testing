@@ -57,7 +57,5 @@ describe('6. Teste o componente <Pokemon.js />', () => {
     const star = screen.getByRole('img', { name: /pikachu is marked as favorite/i });
     expect(star).toHaveAttribute('src', '/star-icon.svg');
     expect(star.alt).toContain('Pikachu is marked as favorite');
-
-    // pegar checbox
   });
 });
