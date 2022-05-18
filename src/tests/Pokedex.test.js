@@ -17,14 +17,6 @@ describe('5. Teste o componente <App.js />', () => {
     },
   );
 
-  // test('O botão deve conter o texto Próximo pokémon', () => {
-  //   const { ge}renderWithRouter(<App />);
-  //   const btnNextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
-  //   expect(btnNextPokemon).toBeInTheDocument();
-
-  //   userEvent.click(btnNextPokemon);
-  // });
-
   test('Os próximos pokémons da lista devem ser mostrados, clicar no botão', () => {
     renderWithRouter(<App />);
     const btnNextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
@@ -62,24 +54,5 @@ describe('5. Teste o componente <App.js />', () => {
     const btnElectric = screen.getByRole('button', { name: /Electric/i });
     expect(btnElectric).toBeInTheDocument();
     userEvent.click(btnElectric);
-  });
-
-  test('A partir da seleção de um botão de tipo, a Pokédex deve circular somente', () => {
-    renderWithRouter(<App />);
-    const btnFirstFire = screen.getByRole('button', { name: /fire/i });
-    expect(btnFirstFire).toBeInTheDocument();
-
-    userEvent.click(btnFirstFire);
-
-    const image = screen.getByRole('img', { name: /charmander sprite/i });
-    expect(image).toBeInTheDocument();
-
-    const btnNextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
-    expect(btnNextPokemon).toBeInTheDocument();
-
-    userEvent.click(btnNextPokemon);
-
-    const image2 = screen.getByRole('img', { name: /rapidash sprite/i });
-    expect(image2).toBeInTheDocument();
   });
 });
