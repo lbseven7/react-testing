@@ -9,11 +9,4 @@ describe('1. Teste o componente <FavoritePokemons.js />', () => {
     const favorite = screen.getByText(/No favorite pokemon found/i);
     expect(favorite).toBeInTheDocument();
   });
-
-  test('Teste se são exibidos todos os cards de pokémons favoritados', () => {
-    renderWithRouter(<FavoritePokemons />);
-
-    // const favorites = container.querySelector('#root > div > div > div > div > div');
-    // expect(favorites).toBeInTheDocument();
-  });
 });

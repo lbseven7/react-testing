@@ -1,22 +1,18 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
-// import App from '../App';
 
 describe('6. Teste o componente <Pokemon.js />', () => {
   test('O nome correto do pokémon deve ser mostrado na tela', () => {
     renderWithRouter(<App />);
-
     const namePokemon = screen.getByText(/pikachu/i);
     expect(namePokemon).toBeInTheDocument();
   });
 
   test('O tipo correto do pokémon deve ser mostrado na tela', () => {
     renderWithRouter(<App />);
-
     const typePokemon = screen.getByTestId('pokemon-type');
     expect(typePokemon).toHaveTextContent(/Electric/i);
 
@@ -47,7 +43,6 @@ describe('6. Teste o componente <Pokemon.js />', () => {
 
   test('Teste se existe um ícone de estrela nos pokémons favoritados', () => {
     renderWithRouter(<App />);
-
     const linkNav = screen.getByRole('link', { name: /more details/i });
     userEvent.click(linkNav);
 

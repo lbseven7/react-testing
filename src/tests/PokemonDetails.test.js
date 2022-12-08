@@ -61,6 +61,8 @@ describe('7. Teste o componente <PokemonDetails.js />', () => {
     const summary = screen.getByRole('heading', { name: /summary/i });
     expect(summary).toBeInTheDocument();
 
+    expect(linkMoreDetails).not.toBeInTheDocument();
+
     screen.getByText(
       'This intelligent Pokémon roasts hard berries '
       + 'with electricity to make them tender enough to eat.',

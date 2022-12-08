@@ -1,6 +1,5 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
@@ -9,7 +8,6 @@ describe('5. Teste o componente <App.js />', () => {
   test(
     'Teste se a página contém um heading h2 com o texto Encountered pokémons', () => {
       renderWithRouter(<App />);
-
       const pokemonEncountered = screen.getByRole(
         'heading', { name: /encountered pokémons/i },
       );

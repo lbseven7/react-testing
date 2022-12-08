@@ -23,8 +23,4 @@ describe('4. Teste o componente <NotFound.js />', () => {
       'src', 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif',
     );
   });
-
-  test('Acessar uma página que não existe', () => {
-    renderWithRouter(<NotFound />);
-  });
 });
